@@ -1,0 +1,709 @@
+@import "colors.scss";
+
+* {
+  all: unset;
+}
+
+//Global Styles
+
+window {
+  background-color: rgba(0, 0, 0, 0);
+  color: $font-color;
+  font-family: monospace;
+  border-radius: $defalt-radius;
+}
+
+
+button {
+  all: unset;
+  background-image: radial-gradient(circle farthest-corner at center, transparent 100%, transparent 100%);
+  transition: 100ms, background-size 300ms cubic-bezier(0, 0, 0.1, 3), background-image 1000ms cubic-bezier(0, 0, 0.2, 3);
+  padding: 10px;
+}
+
+/// Power
+
+.power {
+  background-color: $base-color;
+}
+
+.icon_user {
+  background-size: 900px;
+  background-repeat: no-repeat;
+  background-color: rgba(10, 10, 10, 0.0);
+  background-position: center;
+  min-height: 310px;
+  min-width: 300px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  border-radius: $defalt-radius;
+}
+
+.icon_user:hover {
+  background-size: 830px;
+  background-repeat: no-repeat;
+  background-color: rgba(10, 10, 10, 0.0);
+  background-position: center;
+  min-height: 310px;
+  min-width: 300px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  border-radius: 0;
+}
+
+.user {
+  font-family: Ubuntu Bold;
+  font-size: 40px;
+  margin-bottom: 10px;
+  padding: 0px;
+  background-color: rgba(10, 10, 10, 0.0);
+  color: $font-color;
+  border-radius: $defalt-radius;
+}
+
+.time {
+  font-family: Ubuntu Bold;
+  font-size: 60px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  padding: 0px;
+  background-color: rgba(10, 10, 10, 0.0);
+  color: $font-color;
+  border-radius: $defalt-radius;
+}
+
+.bye {
+  font-size: 30px;
+  color: $font-color;
+  background-color: rgba(200, 200, 200, 0.1);
+  border-radius: $defalt-radius;
+  margin: 20px;
+}
+
+.power-control button {
+  font-size: 60px;
+  min-width: 100px;
+  color: $font-color;
+  border-style: solid;
+  border-width: 5px;
+  border-color: transparent;
+  border-radius: $defalt-radius;
+  margin: 30px;
+}
+
+.power-control button:hover {
+  font-size: 60;
+  min-width: 100px;
+  color: $destac-color;
+  border-style: solid;
+  border-width: 5px;
+  border-color: $destac-color;
+  border-radius: $defalt-radius;
+}
+
+.exit {
+  padding: 10px;
+}
+
+.exit button {
+  font-size: 20px;
+  color: $font-color;
+  border-radius: $defalt-radius;
+  margin: 20px;
+}
+
+.exit button:hover {
+  font-size: 25px;
+  color: $destac-color;
+  background-color: rgba(200, 200, 200, 0.2);
+  border-radius: $defalt-radius;
+}
+
+// Volume ///////////////////////////////////////////////////////
+
+.icon_volume {
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0);
+  background-position: center;
+  min-height: 80px;
+  min-width: 70px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.icon_volume:hover {
+  background-size: 105px;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0);
+  min-height: 80px;
+  min-width: 70px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.vol {
+  all: unset;
+  background-color: $base-color;
+  padding: 0px;
+  border-radius: 0;
+  color: $font-color;
+}
+
+.label-vol {
+  font-size: 20px;
+  background-color: transparent;
+  margin: 10px;
+  margin: 10px;
+  color: $font-color;
+}
+
+.label-vol:hover {
+  background-color: transparent;
+  color: $destac-color;
+  border-radius: $defalt-radius;
+}
+
+.Volume scale trough highlight {
+  all: unset;
+  background-image: linear-gradient(90deg, $destac-color 90%, #FF0000 10%);
+  color: #000000;
+  border-radius: $defalt-radius;
+}
+
+.Volume scale trough {
+  all: unset;
+  background-color: rgba(200, 200, 200, 0.6);
+  border-radius: $defalt-radius;
+  min-height: 15px;
+  min-width: 175px;
+  margin-top: 0px;
+}
+
+
+.Volume_Perc {
+  font-family: Ubuntu;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0);
+  color: $font-color;
+  margin-left: 6px;
+}
+
+.settings {
+  font-size: 20px;
+  background-color: transparent;
+  color: $font-color;
+  padding: 10px;
+  margin: 10px;
+  border-radius: $defalt-radius;
+}
+
+.settings:hover {
+  background-color: transparent;
+  color: $destac-color;
+  border-radius: $defalt-radius;
+}
+
+/// Player Spotify
+
+.playerspotify {
+  background-color: $base-color;
+  border-radius: $defalt-radius;
+}
+
+.icon-spotify {
+  background-size: 300px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  min-height: 330px;
+  min-width: 330px;
+  border-radius: $defalt-radius;
+}
+
+.icon-spotify:hover {
+  background-size: 330px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  min-height: 330px;
+  min-width: 330px;
+  border-radius: $defalt-radius;
+  background-position: center;
+}
+
+.spotiartist {
+  font-family: Ubuntu Bold;
+  font-size: 40px;
+  margin-top: 50;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  padding: 10px;
+  background-color: rgba(200, 200, 200, 0.5);
+  color: $font-color;
+  border-radius: $defalt-radius;
+}
+
+.spotititle {
+  font-family: Ubuntu Bold;
+  font-size: 20px;
+  margin-top: 10;
+  margin-bottom: 50px;
+  margin-right: 20px;
+  color: $destac-color;
+}
+
+.spoti-control-music {
+  background-size: 70px;
+  background-repeat: no-repeat;
+  background-color: rgba(10, 10, 10, 0.0);
+  min-height: 35px;
+  min-width: 35px;
+  background-position: center;
+  margin-right: 20px;
+
+}
+
+.spoti-control-music:hover {
+  background-size: 60px;
+  min-height: 35px;
+  min-width: 35px;
+  border-radius: $defalt-radius;
+}
+
+/// Super Panel
+
+.super_panel_user {
+  background-size: 600px;
+  background-repeat: no-repeat;
+  background-color: $base-color;
+  background-position: center;
+  min-height: 200px;
+  min-width: 240px;
+  border-radius: 10 10 0 0;
+}
+
+.super_panel_user:hover {
+  background-size: 580px;
+  background-repeat: no-repeat;
+  background-color: $base-color;
+  background-position: center;
+  min-height: 200px;
+  min-width: 240px;
+  border-radius: 10 10 0 0;
+}
+
+.super_user_name {
+  background-color: $base-color;
+  color: $font-color;
+  font-family: Ubuntu;
+  font-size: 20px;
+  padding-bottom: 10px;
+  border-radius: 0 0 10 10;
+}
+
+.reddit {
+  background-size: 60px;
+  background-repeat: no-repeat;
+  background-color: $base-color;
+  background-position: center;
+  min-height: 60px;
+  min-width: 100px;
+  border-radius: 20 20 0 20;
+}
+
+.reddit:hover {
+  background-size: 70px;
+  background-repeat: no-repeat;
+  background-color: $base-color;
+  background-position: center;
+  min-height: 60px;
+  min-width: 100px;
+  border-radius: 20 20 0 20;
+}
+
+.telegram {
+  background-size: 60px;
+  background-repeat: no-repeat;
+  background-color: $base-color;
+  background-position: center;
+  min-height: 60px;
+  min-width: 100px;
+  border-radius: 20 20 20 0;
+  margin-left: 10px;
+}
+
+.telegram:hover {
+  background-size: 70px;
+  background-repeat: no-repeat;
+  background-color: $base-color;
+  background-position: center;
+  min-height: 60px;
+  min-width: 100px;
+  border-radius: 20 20 20 0;
+}
+
+.youtube {
+  background-size: 60px;
+  background-repeat: no-repeat;
+  background-color: $base-color;
+  background-position: center;
+  min-height: 60px;
+  min-width: 100px;
+  border-radius: 20 0 20 20;
+
+}
+
+.youtube:hover {
+  background-size: 70px;
+  background-repeat: no-repeat;
+  background-color: $base-color;
+  background-position: center;
+  min-height: 60px;
+  min-width: 100px;
+  border-radius: 20 0 20 20;
+}
+
+.spotify {
+  background-size: 60px;
+  background-repeat: no-repeat;
+  background-color: $base-color;
+  background-position: center;
+  min-height: 60px;
+  min-width: 100px;
+  border-radius: 0 20 20 20;
+  margin-left: 10px;
+}
+
+.spotify:hover {
+  background-size: 70px;
+  background-repeat: no-repeat;
+  background-color: $base-color;
+  background-position: center;
+  min-height: 60px;
+  min-width: 100px;
+  border-radius: 0 20 20 20;
+}
+
+
+.mpd_icon button {
+  font-family: monospace;
+  font-size: 30px;
+  background-color: $destac-color;
+  color: $font-color;
+  padding-left: 27px;
+  padding-right: 27px;
+  border-radius: 10 0 0 10;
+}
+
+.mpd_icon {
+  font-family: monospace;
+  font-size: 30px;
+  background-color: $destac-color;
+  color: $font-color;
+  padding-left: 27px;
+  padding-right: 27px;
+  border-radius: 10 0 0 10;
+}
+
+.mpd_icon:hover {
+  font-family: monospace;
+  font-size: 30px;
+  background-color: $destac-color;
+  color: $base-color;
+  padding-left: 27px;
+  padding-right: 27px;
+  border-radius: 10 0 0 10;
+}
+
+.mpd_music_name {
+  background-color: $base-color;
+  font-family: Ubuntu;
+  font-size: 16px;
+}
+
+.control-mpd {
+  background-color: $base-color;
+  font-family: monospace;
+  font-size: 15px;
+}
+
+.control-mpd:hover {
+  background-color: $base-color;
+  color: #F88765;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.music-info {
+  background-color: $base-color;
+}
+
+.music-info scale trough highlight {
+  all: unset;
+  background-color: $destac-color;
+  color: #000000;
+  border-radius: 0px;
+}
+
+.music-info scale trough {
+  all: unset;
+  background-color: $base-color;
+  border-radius: $defalt-radius;
+  min-height: 15px;
+  min-width: 175px;
+}
+
+calendar {
+  background-color: $base-color;
+}
+
+calendar:selected {
+  border-radius: 10px;
+  color: $destac-color;
+  background-color: rgba(200, 200, 200, 0.4);
+}
+
+calendar.header {
+  color: $destac-color;
+  font-weight: bold;
+}
+
+calendar.button {
+  color: $destac-color;
+}
+
+calendar.highlight {
+  color: #708090;
+  font-weight: bold;
+}
+
+calendar:indeterminate {
+  color: rgba(155, 155, 155, 0.4);
+}
+
+.calendarwin {
+  background-color: $base-color;
+  color: #919191;
+  font-family: Ubuntu Bold;
+  font-size: 14px;
+  border-radius: 0px;
+  padding-left: 22px;
+  padding-right: 22px;
+
+}
+
+.date {
+  background-color: $base-color;
+  color: #919191;
+  font-family: Ubuntu Bold;
+  font-size: 18px;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 3px;
+}
+
+.weather-panel {
+  background-color: $base-color;
+  color: #708090
+}
+
+.weather-icon {
+  font-family: monospace;
+  font-size: 80px;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-top: 27px;
+  padding-bottom: 27px;
+}
+
+.city {
+  font-family: Ubuntu;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: $destac-color;
+  color: $font-color
+}
+
+.weatherstatus {
+  font-family: Ubuntu;
+  font-size: 17px;
+  padding-right: 10px;
+
+}
+
+.weathertemp {
+  font-family: Ubuntu;
+  font-size: 20px;
+  color: $destac-color;
+  padding-top: 10px;
+}
+
+.weatherspeed {
+  font-family: Ubuntu;
+  font-size: 20px;
+  color: #FF00FF;
+  padding-top: 6px;
+
+}
+
+.moon {
+  font-family: Ubuntu;
+  font-size: 20px;
+  color: $font-color;
+  padding-top: 6px;
+
+}
+
+.system {
+  background-color: $base-color;
+  padding: 2px;
+}
+
+.sysicons {
+  background-color: $base-color;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+
+.labels {
+  font-family: monospace;
+  font-size: 15px;
+  margin: 5px;
+  border-right-style: solid;
+  border-width: 1px;
+  border-color: $destac-color;
+}
+
+.graphics {
+  background-color: $base-color;
+}
+
+.graphic_cpu scale trough {
+  all: unset;
+  background-color: transparent;
+  border-radius: 0px;
+  min-height: 15px;
+  min-width: 155px;
+  margin-left: 2px;
+  margin-top: 12px;
+}
+
+
+
+.graphic_cpu trough highlight {
+    all: unset;
+    background-image: linear-gradient(90deg, $destac-color 90%, #FF8B8B 10%);
+    color: #000000;
+    border-radius: 20px;
+}
+
+.graphic_mem scale trough {
+  all: unset;
+  background-color: transparent;
+  border-radius: 0px;
+  min-height: 15px;
+  min-width: 155px;
+  margin-left: 2px;
+  margin-top: 9px;
+
+}
+
+.graphic_mem scale trough highlight {
+  all: unset;
+  background-image: linear-gradient(90deg, $destac-color 90%, #FFAD8B 10%);
+  color: #000000;
+  border-radius: 20px;
+}
+
+.graphic_root scale trough {
+  all: unset;
+  background-color: transparent;
+  border-radius: 0px;
+  min-height: 15px;
+  min-width: 155px;
+  margin-left: 2px;
+  margin-top: 10px;
+
+}
+
+.graphic_root scale trough highlight {
+  all: unset;
+  background-image: linear-gradient(90deg, $destac-color 90%, #FFD08B 10%);
+  color: #000000;
+  border-radius: 20px;
+}
+
+.graphic_home scale trough {
+  all: unset;
+  background-color: transparent;
+  border-radius: 0px;
+  min-height: 15px;
+  min-width: 155px;
+  margin-left: 2px;
+  margin-top: 10px;
+
+}
+
+.graphic_home scale trough highlight {
+  all: unset;
+  background-image: linear-gradient(90deg, $destac-color 90%, #FFF38B 10%);
+  color: #000000;
+  border-radius: 20px;
+}
+
+.graphic_core1 scale trough {
+  all: unset;
+  background-color: transparent;
+  border-radius: 0px;
+  min-height: 15px;
+  min-width: 155px;
+  margin-left: 2px;
+  margin-top: 12px;
+
+}
+
+.graphic_core1 scale trough highlight {
+  all: unset;
+  background-image: linear-gradient(90deg, $destac-color 90%, #E8FF8B 10%);
+  color: #000000;
+  border-radius: 20px;
+}
+
+.graphic_core2 scale trough {
+  all: unset;
+  background-color: transparent;
+  border-radius: 0px;
+  min-height: 15px;
+  min-width: 155px;
+  margin-left: 2px;
+  margin-top: 13px;
+
+}
+
+.graphic_core2 scale trough highlight {
+  all: unset;
+  background-image: linear-gradient(90deg, $destac-color 90%, #C5FF8B 10%);
+  color: #000000;
+  border-radius: 20px;
+}
+
+.syspanelinfo {
+  background-color: $destac-color;
+  font-family: Ubuntu;
+  font-size: 15px;
+  color: $font-color
+}
+
+.sysinfo {
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.customizer {
+  background-color: $base-color;
+}

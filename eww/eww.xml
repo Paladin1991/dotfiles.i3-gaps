@@ -1,0 +1,414 @@
+<eww> 
+<definitions>
+
+  <!--Power Manager-->
+    <def name="Power">
+      <box orientation="v" space-evenly="false" class="power">
+        <button onclick="eww close power" 
+                class="icon_user" 
+                halign="center" valign="start" 
+                style="background-image: url('Icons/guaxinin.png')">  
+        </button>
+        
+        <box class="user">{{User}}</box>
+        <box class="bye">See you later {{User}}</box>
+        <box class="date">{{Date}}</box>
+        <box class="time">{{Time}}</box>
+        <box orientation="h" halign="center" valign="center" class="power-control" space-evenly="false">
+          
+          <button onclick="shutdown now" 
+                  halign="center" valign="center"></button>
+
+          <button onclick="reboot" 
+                  halign="center" valign="center"></button>
+          
+          <button onclick="i3-lock" 
+                  halign="center" valign="center"></button>
+
+          <button onclick="pkill -u -9 $USER" 
+                  halign="center" valign="center"></button>
+          
+          <button onclick="systemctl logout" 
+                  halign="center" valign="center"></button>
+        </box>
+        <box orientation="v" halign="center" valign="center" class="exit" space-evenly="false">
+          <button onclick="eww close power;pkill sh">Cancel</button>
+        </box>
+      </box>
+    </def>
+
+    <!--Volume-->
+    <def name="Icon_volume">
+      <box orientation="v" space-evenly="false" class="myvol">
+        <button onclick="eww close vol"
+                class="icon_volume" 
+                halign="center" valign="center" 
+                style="background-image: url('Icons/Mac/volume.svg')"> 
+        </button>
+      </box>
+    </def>
+
+     <!--Volume Bar -->
+    <def name="Volume_Bar">
+      <box class="Volume" orientation="h" space-evenly="false" halign="end">
+        <button class="label-vol" onclick="amixer -q set Master toggle">{{Status}}</button>
+        <scale orientation="h" flipped="false" min="0" max="100" value="{{volume}}" onchange="amixer -D pulse sset Master {}%"/>
+        <box class="Volume_Perc">{{volume}}%</box>
+        <button class="settings" onclick="termite -e alsamixer &"></button>
+      </box>
+    </def>
+
+    <!--Spotify-->
+    <def name="Spotify">
+      <box orientation="h" space-evenly="false" class="playerspotify">
+
+      <button onclick="eww close spotify" 
+              class="icon-spotify" 
+              halign="center" valign="center" 
+              style="background-image: url('{{image}}')">
+      </button>      
+        <box orientation="v" class="music-info" align="center" halign="center" space-evenly="false">
+          <label class="spotiartist" text="{{artist2}}"></label>
+          <label class="spotititle" text="{{title2}}"></label>
+          
+          <box orientation="h" halign="center" valign="center" class="control" space-evenly="true">
+            <button onclick="playerctl previous;{{art}}" 
+                    class="spoti-control-music" 
+                    halign="center" valign="center" 
+                    style="background-image: url('Icons/Mac/previous.svg')"> 
+            </button>
+            
+            <button onclick="playerctl play-pause" 
+                    class="spoti-control-music" 
+                    halign="center" valign="center" 
+                    style="background-image: url('{{musicstat2}}')"> 
+            </button>
+
+            <button onclick="playerctl next;{{art}}" 
+                    class="spoti-control-music" 
+                    halign="center" valign="center" 
+                    style="background-image: url('Icons/Mac/next.svg')"> 
+            </button>
+          </box>
+        </box>
+      </box>
+    </def>
+
+    <!--Super Panel-->
+    <def name="SideBar">
+      <box orientation="v" space-evenly="false" class="side-bar">
+        
+        <button onclick="eww close-all; pkill feh" 
+                class="super_panel_user" halign="start" valign="start" 
+                style="background-image: url('Icons/guaxinin.png')"> 
+        </button>
+        <label orientation="h" space-evenly="false" class="super_user_name" text="{{user}}@{{host}}"></label>
+      </box>
+    </def>
+
+    <def name="WebApps">
+      <box orientation="h" space-evenly="false" class="web-apps">
+        <button onclick="xdg-open https://reddit.com & eww close-all & pkill feh" 
+                class="reddit" 
+                halign="start" valign="start" 
+                style="background-image: url('Icons/Mac/reddit.svg')">
+        </button>
+        <button onclick="telegram-desktop & eww close-all & pkill feh"
+                class="telegram" 
+                halign="start" valign="start" 
+                style="background-image: url('Icons/Mac/telegram.svg')"> 
+        </button>
+      </box>
+    </def>
+
+    <def name="WebApps2">
+      <box orientation="h" space-evenly="false" class="web-apps">
+        <button onclick="xdg-open https://youtube.com & eww close-all & pkill feh" 
+                class="youtube" 
+                halign="start" valign="start"  
+                style="background-image: url('Icons/Mac/youtube.svg')"> 
+        </button>
+        
+        <button onclick="spotify & eww close-all & pkill feh"
+                class="spotify" 
+                halign="start" valign="start" 
+                style="background-image: url('Icons/Mac/spotify.svg')"> 
+        </button>
+      </box>
+    </def>
+
+    <def name="Mpd_Player">
+      <box orientation="h" space-evenly="false" class="player_mpd">
+        <button onclick="mpd" space-evenly="true" class="mpd_icon"></button>
+        <box orientation="v" class="music-info">
+          <label class="mpd_music_name" limit-width="20" wrap="true" width="1" text="{{artist}}"></label>
+          <scale min="0" max="100" active="false" value="{{end-music}}" class="progress"/>
+          <box orientation="h" halign="center" valign="center" class="control-mpd" space-evenly="false">
+            <button onclick="mpc prev{{notify}}"></button>
+            <button onclick="mpc toggle">{{musicstat}}</button>
+            <button onclick="mpc next{{notify}}"></button>
+          </box>
+        </box>
+      </box>
+    </def>
+
+    <def name="calendar1">
+      <box class="main" orientation="h" space-evenly="false">
+        <box class="calendarwin" orientation="v" space-evenly="false">
+          <label class="date" text="{{weekday_cal}}" halign="center"/>
+          <calendar show-day-names="true" show-heading="true" halign="center" valign="center"></calendar>
+        </box>
+      </box>
+    </def>
+
+    <def name="Weather">
+      <box orientation="h" class="weather-panel" space-evenly="true">
+        <label class="weather-icon" space-evenly="true" text="{{weathericons}}" halign="center"/>
+        <box orientation="v">
+          <label class="city" text="{{city}}" halign="center" valign="start"/>
+          <label class="weatherstatus" text="{{weather-status}}" halign="center" valign="start"/>
+          <box orientation="h">
+            <label class="weathertemp" text="{{weather-temp}}" halign="center" valign="start"/>
+            <label class="weatherspeed" text="{{weather-speed}}" halign="center" valign="start"/>
+            <label class="moon" text="{{moon}}" halign="center" valign="start"/>
+          </box>
+        </box>
+      </box>
+    </def>
+
+    <def name="System">
+      <box orientation="v" space-evenly="true" class="system">
+        <!--CPU-->
+        <box orientation="v" class="sysicons" space-evenly="false">
+          <box class="labels"></box>
+          <box class="labels"></box>
+          <box class="labels"></box>
+          <box class="labels"></box>
+          <box class="labels">1</box>
+          <box class="labels">2</box>
+        </box>
+      </box>
+    </def>
+
+    <def name="SystemGraphics">
+      <box orientation="v" class="graphics" space-evenly="false">
+        <box orientation="v" class="graphic_cpu" halign="start" valign="start">
+          <scale flipped="false" orientation="h" min="0" active="false" max="100" value="{{cpu-used}}"/>
+        </box>
+        <box orientation="v" class="graphic_mem" halign="start" valign="start">
+          <scale flipped="false" orientation="h" min="0" active="false" max="100" value="{{ram-used}}"/>
+        </box>
+        <box orientation="v" class="graphic_root" halign="start" valign="start">
+          <scale flipped="false" orientation="h" min="0" active="false" max="100" value="{{root-used}}"/>
+        </box>
+        <box orientation="v" class="graphic_home" halign="start" valign="start">
+          <scale flipped="false" orientation="h" min="0" active="false" max="100" value="{{home-used}}"/>
+        </box>
+        <box orientation="v" class="graphic_core1" halign="start" valign="start">
+          <scale flipped="false" orientation="h" min="0" active="false" max="100" value="{{core1}}"/>
+        </box>
+        <box orientation="v" class="graphic_core2" halign="start" valign="start">
+          <scale flipped="false" orientation="h" min="0" active="false" max="100" value="{{core2}}"/>
+        </box>
+      </box>
+    </def>
+
+    <def name="SystemInfo">
+      <box orientation="v" class="syspanelinfo" space-evenly="false">
+        <box class="sysinfo">{{cpu-used}}%</box>
+        <box class="sysinfo">{{ram-used}}%</box>
+        <box class="sysinfo">{{root-used}}G</box>
+        <box class="sysinfo">{{home-used}}G</box>
+        <box class="sysinfo">{{core1}}°C</box>
+        <box class="sysinfo">{{core2}}°C</box>
+      </box>
+    </def>
+
+    <def name="Customizer">
+      <box orientation="v" class="customizer" space-evenly="false">
+        <expander hexpander="true" class="icon-theme" name="Set Icons">
+          <button>Candy</button>
+          <button>Mac</button>
+        </expander>
+        <expander class="sys-theme" name="Set Theme">
+          <button>Night</button>
+          <button>Night</button>
+        </expander>
+      </box>
+    </def>
+
+
+</definitions> 
+
+<variables>
+    <!--
+      Todas as variaveis usadas estao armazenadas neste bloco.
+      Algumas chamam scripts externos, que estao contidos em $HOME/.config/eww/scripts 
+    -->
+
+    <!-- Hora que é exibida na barra lateral -->
+    <script-var name="time" interval="1s">date +%H:%M</script-var>
+    <!-- Usados na tela de gestor de login -->
+    <script-var name="User" interval="1h">echo $USER</script-var>
+    <script-var name="Time" interval="1m">date '+%H:%M'</script-var>
+    <script-var name="Date" interval="1h">date '+%A, %d de %B de %Y'</script-var>
+    <!-- PopUp de volume chamado no icone de volume da barra lateral-->
+    <script-var name="volume" interval="1s">~/.config/eww/scripts/all_sys VOLUME</script-var>
+    <script-var name="Status" interval="1ms">~/.config/eww/scripts/all_sys VOLUME_ICON</script-var>
+    <!-- Usados para o popup de musicas para spotify-->
+    <script-var name="musicstat2" interval="1s">sh ~/.config/eww/scripts/all_sys SPOT</script-var>
+    <script-var name="art" interval="1s">sh ~/.config/eww/scripts/all_sys ART</script-var>
+    <script-var name="image" interval="1s">echo /tmp/fvwm/spotify/cover.png</script-var>
+    <script-var name="artist2" interval="1s">playerctl metadata --format {{artist}}</script-var>
+    <script-var name="title2" interval="1s">playerctl metadata --format {{title}}</script-var>
+
+    <!--Super Panel
+        Aqui estao as variaveis usadas no painel exibido ao clicar o botao direito do mouse-->
+    <!--Nome de usuario-->
+    <script-var name="user" interval="1s">echo $USER</script-var>
+    <!--Nome da distro-->
+    <script-var name="host" interval="2s">uname -n</script-var>
+    <!--Ano exibido no calendario-->
+    <script-var name="year_cal" interval="1s">date '+%Y'</script-var>
+    <!--Data exibida no calendario-->
+    <script-var name="weekday_cal" interval="1s">date '+%a, %d de %B'</script-var>
+    <!--Icone que representa o status do clima-->
+    <script-var name="weathericons" interval="1h">curl wttr.in/Criciuma?format=%c</script-var>
+    <!--Nome da cidade de onde a previsao do clima esta sendo feita-->
+    <script-var name="city" interval="1h">curl wttr.in/Criciuma?format=%l</script-var>
+    <!--Status do clima-->
+    <script-var name="weather-status" interval="1h">curl wttr.in/Criciuma?format=%C</script-var>
+    <!--Temperatura-->
+    <script-var name="weather-temp" interval="1h">curl wttr.in/Criciuma?format=%t</script-var>
+    <!--Velocidade do vento-->
+    <script-var name="weather-speed" interval="1h">curl wttr.in/Criciuma?format=%w</script-var>
+    <!--Fazes da lua-->
+    <script-var name="moon" interval="1h">curl wttr.in/Criciuma?format=%m</script-var>
+    <!--Uso de memoria ram-->
+    <script-var name="ram-used" interval="1s">~/.config/eww/scripts/all_sys MEM</script-var>
+    <!--Uso de cpu-->
+    <script-var name="cpu-used" interval="1s">~/.config/eww/scripts/all_sys CPU</script-var>
+    <!--Espaço de disco usado na raiz do sitema, usando o sistema de arquivos btrfs-->
+    <script-var name="root-used" interval="1s">~/.config/eww/scripts/all_sys ROOT</script-var>
+    <!--Espaço usado pela home, usando o sistema de arquivos btrfs-->
+    <script-var name="home-used" interval="1s">~/.config/eww/scripts/all_sys HOME</script-var>
+    <!--Temperatura do nucleo 1 do processador-->
+    <script-var name="core1" interval="1s">~/.config/eww/scripts/all_sys CORE1</script-var>
+    <!--Temperatura do nucleo 2 do procesador-->
+    <script-var name="core2" interval="1s">~/.config/eww/scripts/all_sys CORE2</script-var>
+    <!--Exibe uma notificaçao ao mudar de faixa musical-->
+    <script-var name="notify" interval="2s">sh ~/.config/eww/scripts/all_sys NOTIFY</script-var>
+    <!--Captura o tempo da musica para exibir uma barra de progresso-->
+    <script-var name="end-music" interval="5ms">sh ~/.config/eww/scripts/all_sys M_PROGRESS</script-var>
+    <!--Nome do artista para mpd-->
+    <script-var name="artist" interval="1s">~/.config/eww/scripts/all_sys ARTIST</script-var>
+    <!--Nome da musica para mpd-->
+    <script-var name="title" interval="1s">sh ~/.config/eww/scripts/all_sys TITLE</script-var>
+    <!--Mostra o status da musica, se esta ou nao tocando-->
+    <script-var name="musicstat" interval="1s"> sh ~/.config/eww/scripts/all_sys P_P</script-var>
+
+</variables>
+
+  <windows>
+    <!--Power_Manager-->
+    <window name="power">
+      <geometry x="0" y="0" width="1600" height="900"/>
+      <widget>
+        <box class="main_power" orientation="v" space-evenly="false">
+          <Power/>
+        </box>
+      </widget>
+    </window>
+
+    <window name="vol">
+      <geometry x="1256" y="60" width="200" height="50"/>
+      <widget>
+        <box class="main_vol" orientation="v" space-evenly="false">
+          <Icon_volume/>
+          <Volume_Bar/>
+        </box>
+      </widget>
+    </window>
+
+    <!--Music--><!--Spotify-->
+    <window name="spotify">
+      <geometry x="10" y="60" width="300" height="50"/>
+      <widget>
+        <box class="main_box" orientation="v" space-evenly="false">
+          <Spotify/>
+        </box>
+      </widget>
+    </window>
+
+     <!--Super Panel-->
+    <window name="sidebar">
+      <geometry x="280" y="250" width="0" height="0"/>
+      <widget>
+        <box halign="start" valign="start" orientation="v" space-evenly="false">
+          <SideBar/>
+        </box>
+      </widget>
+    </window>
+
+    <window name="webapps">
+      <geometry x="550" y="250" width="0" height="0"/>
+      <widget>
+        <box halign="start" valign="start" orientation="v" space-evenly="false">
+          <WebApps/>
+        </box>
+      </widget>
+    </window>
+
+    <window name="webapps2">
+      <geometry x="550" y="340" width="0" height="0"/>
+      <widget>
+        <box halign="start" valign="start" orientation="v" space-evenly="false">
+          <WebApps2/>
+        </box>
+      </widget>
+    </window>
+
+    <window name="mpd">
+      <geometry x="280" y="515" width="0" height="0"/>
+      <widget>
+        <box halign="start" valign="start" orientation="v" space-evenly="false">
+          <Mpd_Player/>
+        </box>
+      </widget>
+    </window>
+
+    <window name="calendar">
+      <geometry x="550px" y="430px" width="0px" height="0px"/>
+      <widget>
+        <calendar1/>
+      </widget>
+    </window>
+
+    <window name="weather">
+      <geometry x="810px" y="430px" width="530px" space-evenly="true" height="190px"/>
+      <widget>
+        <Weather/>
+      </widget>
+    </window>
+
+    <window name="sys">
+      <geometry x="810px" y="250px" width="0px" height="0px"/>
+      <widget>
+        <box halign="start" valign="start" orientation="h" space-evenly="false">
+          <System/>
+          <SystemGraphics/>
+          <SystemInfo/>
+        </box>
+      </widget>
+    </window>
+
+    <window name="custom">
+      <geometry x="10px" y="630px" width="0px" space-evenly="true" height="0px"/>
+      <widget>
+        <Customizer/> 
+      </widget>
+    </window>
+
+     </windows>
+</eww>
+ 

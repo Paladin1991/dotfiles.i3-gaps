@@ -1,0 +1,133 @@
+#!/bin/bash
+
+SideVol(){
+	Get_Vol=$(amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%')
+		if [[ $Get_Vol -gt 50 ]]; then
+			echo "Icons/Candy/sidevolmax.svg"
+		elif [[ $Get_Vol -lt 50 ]]; then
+			echo "Icons/Candy/sidevolmedio.svg"
+		else
+			echo "Icons/Candy/sidevolmuted.svg"
+		fi
+}
+
+Pacman(){
+	Ups=$(checkupdates | wc -l)
+	Packs=$(pacman -Q | wc -l)
+	Cache=$(ls /var/cache/pacman/pkg | wc -l)
+
+	echo "     Updates   ->  $Ups"
+	echo "     Packages  ->  $Packs"
+	echo "     Cache     ->  $Cache"
+}
+
+Active1=$(wmctrl -lx | sed 's/archlinux//g' | awk '{print $2}' | grep 0 | wc -l)
+Active2=$(wmctrl -lx | sed 's/archlinux//g' | awk '{print $2}' | grep 1 | wc -l)
+Active3=$(wmctrl -lx | sed 's/archlinux//g' | awk '{print $2}' | grep 2 | wc -l)
+Active4=$(wmctrl -lx | sed 's/archlinux//g' | awk '{print $2}' | grep 3 | wc -l)
+Active5=$(wmctrl -lx | sed 's/archlinux//g' | awk '{print $2}' | grep 4 | wc -l)
+Active6=$(wmctrl -lx | sed 's/archlinux//g' | awk '{print $2}' | grep 5 | wc -l)
+Active7=$(wmctrl -lx | sed 's/archlinux//g' | awk '{print $2}' | grep 6 | wc -l)
+Active8=$(wmctrl -lx | sed 's/archlinux//g' | awk '{print $2}' | grep 7 | wc -l)
+Active9=$(wmctrl -lx | sed 's/archlinux//g' | awk '{print $2}' | grep 8 | wc -l)
+Active10=$(wmctrl -lx | sed 's/archlinux//g' | awk '{print $2}' | grep 9 | wc -l)
+
+Num=$(wmctrl -d | grep "*" | awk '{print $1}')
+
+Work1(){
+	if [[ $Num -eq 0 ]]; then
+		echo "Icons/Work/1.svg"
+	elif [[ $Active1 -gt 0 ]]; then
+		echo "Icons/Work/01.svg"
+	fi
+
+}
+
+Work2(){
+	if [[ $Num -eq 1 ]]; then
+		echo "Icons/Work/2.svg"
+	elif [[ $Active2 -gt 0 ]]; then
+		echo "Icons/Work/02.svg"
+	fi
+}
+
+Work3(){
+	if [[ $Num -eq 2 ]]; then
+		echo "Icons/Work/3.svg"
+	elif [[ $Active3 -gt 0 ]]; then
+		echo "Icons/Work/03.svg"
+	fi
+}
+
+Work4(){
+	if [[ $Num -eq 3 ]]; then
+		echo "Icons/Work/4.svg"
+	elif [[ $Active4 -gt 0 ]]; then
+		echo "Icons/Work/04.svg"
+	fi
+}
+
+Work5(){
+	if [[ $Num -eq 4 ]]; then
+		echo "Icons/Work/5.svg"
+	elif [[ $Active5 -gt 0 ]]; then
+		echo "Icons/Work/05.svg"
+	fi
+}
+
+Work6(){
+	if [[ $Num -eq 5 ]]; then
+		echo "Icons/Work/6.svg"
+	elif [[ $Active6 -gt 0 ]]; then
+		echo "Icons/Work/06.svg"
+	fi
+}
+
+Work7(){
+	if [[ $Num -eq 6 ]]; then
+		echo "Icons/Work/7.svg"
+	elif [[ $Active7 -gt 0 ]]; then
+		echo "Icons/Work/07.svg"
+	fi
+}
+
+Work8(){
+	if [[ $Num -eq 7 ]]; then
+		echo "Icons/Work/8.svg"
+	elif [[ $Active8 -gt 0 ]]; then
+		echo "Icons/Work/08.svg"
+	fi
+}
+
+Work9(){
+	if [[ $Num -eq 8 ]]; then
+		echo "Icons/Work/9.svg"
+	elif [[ $Active9 -gt 0 ]]; then
+		echo "Icons/Work/09.svg"
+	fi
+}
+
+Work10(){
+	if [[ $Num -eq 9 ]]; then
+		echo "Icons/Work/10.svg"
+	elif [[ $Active10 -gt 0 ]]; then
+		echo "Icons/Work/010.svg"
+	fi
+}
+
+
+case $1 in
+	GetVol) SideVol 	;;
+	Pac) Pacman 	;;
+	w1) Work1 	;;
+	w2) Work2 	;;
+	w3) Work3 	;;
+	w4) Work4 	;;
+	w5) Work5 	;;
+	w6) Work6 	;;
+	w7) Work7 	;;
+	w8) Work8 	;;
+	w9) Work9 	;;
+	w10) Work10 	;;
+		
+esac

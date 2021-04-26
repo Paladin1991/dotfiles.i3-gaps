@@ -1,0 +1,12 @@
+/************************
+ * Current theme colors *
+ ************************/
+
+/**** Background Colors ****/
+@define-color color-theme #0D1212;
+
+/**** Font Colors and Destac Colors ****/
+@define-color color-font #FF6563;
+
+/**** Text Colors ****/
+@define-color normal-font #EBE1CD;

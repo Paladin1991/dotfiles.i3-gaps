@@ -1,0 +1,162 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;========================================================== 
+
+[colors]
+background           = #171815
+background-alt       = #6FB4F0
+foreground           = #D9E6CA
+
+[bar/example]
+width = 99%
+height = 40
+offset-x = 0.5%
+offset-y = 2.0%
+radius = 0
+fixed-center = true
+bottom = false
+enable-ipc = true
+
+tray-position = right
+tray-padding = 5
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 0
+line-color = ${colors.background-alt}
+
+border-size = 0
+border-color = ${colors.background}
+
+padding-left = 1
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-1 = Font Awesome 5 Free:style=Solid:pixelsize=11;2
+font-2 = Font Awesome 5 Brands:pixelsize=11;2
+font-0 = Fira Code:style=normal:size=13;2
+
+modules-left    = spotify workspaces
+modules-center  = xwindow
+modules-right   = volume date powermenu
+
+wm-restack = i3
+;wm-restack = bspwm
+
+override-redirect = true
+
+;; scroll-up = bspwm-desknext
+;; scroll-down = bspwm-deskprev 
+
+scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/spotify]
+type = custom/script
+tail = true
+; prefix symbol is shown before the text
+format-prefix = "  "
+click-left = eww open spotify
+format = <label>
+exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+format-foreground = ${colors.foreground}
+format-padding = 4
+
+[module/workspaces]
+type = internal/xworkspaces
+pin-workspaces = false
+enable-click = true
+enable-scroll = true
+format-padding = 1
+
+icon-default = 
+
+format = <label-state>
+format-background = ${color.bg1}
+label-active = 
+label-occupied = 
+label-urgent = 
+label-empty = 
+
+label-empty-padding = 1
+label-active-padding = 1
+label-urgent-padding = 1
+label-occupied-padding = 1
+
+label-active-foreground = ${colors.background-alt}
+label-urgent-foreground = #F26364
+
+[module/volume]
+type = internal/pulseaudio
+format-volume = <ramp-volume> <label-volume>
+format-volume-font = 10
+format-volume-padding = 0
+ramp-volume-foreground = ${colors.foreground}
+label-volume =
+label-muted-foreground = ${colors.foreground}
+label-muted = "    "
+label-muted-padding = 0
+ramp-volume-0 = "   "
+ramp-volume-1 = "   "
+ramp-volume-2 = "   "
+ramp-volume-3 = "   "
+ramp-volume-4 = "   "
+ramp-volume-5 = "   "
+ramp-volume-6 = "   "
+
+click-right = eww open vol 
+
+[module/powermenu]
+type = custom/text
+content = 
+content-padding = 0
+content-foreground = ${colors.background-alt}
+click-left = eww open power
+
+[module/date]
+type = internal/date
+interval = 5
+format-prefix-foreground = ${colors.background-alt}
+time      = %I:%M %p
+time-alt  = %A, %d %B %Y
+format-prefix = 
+label = " %time%"
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini

@@ -1,0 +1,155 @@
+# Variables
+
+set $mod Mod4
+set $term termite
+set $browser google-chrome-stable
+set $file-manager nemo
+set $editor subl3
+set $print-screen scrot 'My_i3-gaps_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
+set $panel-tools eww open-many sidebar webapps webapps2 mpd calendar weather sys & feh -g 240x170+1095+246 --zoom 18 ~/Imagens/*
+
+# colors
+set $base       #171815
+set $highlight  #6FB4F0
+set $indicator  #F63357 
+
+
+font pango:monospace 10
+
+# Use pactl to adjust volume in PulseAudio.
+
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# kill focused window
+bindsym $mod+q kill
+
+# KeyBinds applications
+
+# start a terminal
+bindsym $mod+Return exec $term
+# start web browser
+bindsym $mod+c exec $browser
+# start text editor
+bindsym $mod+Shift+s exec $editor
+# start file manager
+bindsym $mod+Shift+n exec $file-manager
+# start print screen
+bindsym Print exec $print-screen
+# start panel tools
+bindsym $mod+e exec $panel-tools
+# start dmenu
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# focus defaults
+focus_follows_mouse yes
+focus_wrapping no
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+Shift+space layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+s floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space split toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec i3-msg exit 
+
+# i3 gaps
+for_window [class= "^.*"] border pixel 4
+gaps inner 30
+gaps outer 0
+#gaps horizontal 10
+#gaps vertical 10
+gaps top 40
+#gaps right 10
+#gaps bottom 10
+#gaps left 10
+smart_borders on
+smart_borders no_gaps
+
+# Colors
+
+# class                   border  bground    text   indicator   child_border
+client.focused            $base   $base      $base  $indicator $highlight
+client.focused_inactive   $base   $base      $base  $base       $base
+client.unfocused          $base   $base      $base  $base       $base
+
+# Autostart
+exec --no-startup-id sh ~/.config/i3/autostart.sh
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+
+# Floating
+#for_window [instance=" "] floating enable
+#for_window [instance="subl3"] floating enable
+#for_window [instance="chromium"] floating enable
+for_window [instance="feh"] floating enable
+for_window [class="feh"] border pixel 0
+for_window [instance="lxappearance"] floating enable
