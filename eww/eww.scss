@@ -7,10 +7,10 @@
 //Global Styles
 
 window {
-  background-color: rgba(0, 0, 0, 0);
-  color: $font-color;
+  background-color: $base;
+  color: $font;
   font-family: monospace;
-  border-radius: $defalt-radius;
+  border-radius: 0px;
 }
 
 
@@ -24,7 +24,7 @@ button {
 /// Power
 
 .power {
-  background-color: $base-color;
+  background-color: $base;
 }
 
 .icon_user {
@@ -57,7 +57,7 @@ button {
   margin-bottom: 10px;
   padding: 0px;
   background-color: rgba(10, 10, 10, 0.0);
-  color: $font-color;
+  color: $font;
   border-radius: $defalt-radius;
 }
 
@@ -68,13 +68,13 @@ button {
   margin-right: 0px;
   padding: 0px;
   background-color: rgba(10, 10, 10, 0.0);
-  color: $font-color;
+  color: $font;
   border-radius: $defalt-radius;
 }
 
 .bye {
   font-size: 30px;
-  color: $font-color;
+  color: $font;
   background-color: rgba(200, 200, 200, 0.1);
   border-radius: $defalt-radius;
   margin: 20px;
@@ -83,7 +83,7 @@ button {
 .power-control button {
   font-size: 60px;
   min-width: 100px;
-  color: $font-color;
+  color: $font;
   border-style: solid;
   border-width: 5px;
   border-color: transparent;
@@ -94,10 +94,10 @@ button {
 .power-control button:hover {
   font-size: 60;
   min-width: 100px;
-  color: $destac-color;
+  color: $highlight;
   border-style: solid;
   border-width: 5px;
-  border-color: $destac-color;
+  border-color: $highlight;
   border-radius: $defalt-radius;
 }
 
@@ -107,14 +107,14 @@ button {
 
 .exit button {
   font-size: 20px;
-  color: $font-color;
+  color: $font;
   border-radius: $defalt-radius;
   margin: 20px;
 }
 
 .exit button:hover {
   font-size: 25px;
-  color: $destac-color;
+  color: $highlight;
   background-color: rgba(200, 200, 200, 0.2);
   border-radius: $defalt-radius;
 }
@@ -144,10 +144,10 @@ button {
 
 .vol {
   all: unset;
-  background-color: $base-color;
+  background-color: $base;
   padding: 0px;
   border-radius: 0;
-  color: $font-color;
+  color: $font;
 }
 
 .label-vol {
@@ -155,18 +155,18 @@ button {
   background-color: transparent;
   margin: 10px;
   margin: 10px;
-  color: $font-color;
+  color: $font;
 }
 
 .label-vol:hover {
   background-color: transparent;
-  color: $destac-color;
+  color: $highlight;
   border-radius: $defalt-radius;
 }
 
 .Volume scale trough highlight {
   all: unset;
-  background-image: linear-gradient(90deg, $destac-color 90%, #FF0000 10%);
+  background-image: linear-gradient(90deg, $highlight 90%, #FF0000 10%);
   color: #000000;
   border-radius: $defalt-radius;
 }
@@ -185,14 +185,14 @@ button {
   font-family: Ubuntu;
   font-size: 14px;
   background-color: rgba(0, 0, 0, 0);
-  color: $font-color;
+  color: $font;
   margin-left: 6px;
 }
 
 .settings {
   font-size: 20px;
   background-color: transparent;
-  color: $font-color;
+  color: $font;
   padding: 10px;
   margin: 10px;
   border-radius: $defalt-radius;
@@ -200,15 +200,15 @@ button {
 
 .settings:hover {
   background-color: transparent;
-  color: $destac-color;
+  color: $highlight;
   border-radius: $defalt-radius;
 }
 
 /// Player Spotify
 
 .playerspotify {
-  background-color: $base-color;
-  border-radius: $defalt-radius;
+  background-color: $base;
+  border-radius: 0px;
 }
 
 .icon-spotify {
@@ -227,7 +227,7 @@ button {
   background-color: transparent;
   min-height: 330px;
   min-width: 330px;
-  border-radius: $defalt-radius;
+  border-radius: 0px;
   background-position: center;
 }
 
@@ -239,7 +239,7 @@ button {
   margin-right: 20px;
   padding: 10px;
   background-color: rgba(200, 200, 200, 0.5);
-  color: $font-color;
+  color: $font;
   border-radius: $defalt-radius;
 }
 
@@ -249,7 +249,7 @@ button {
   margin-top: 10;
   margin-bottom: 50px;
   margin-right: 20px;
-  color: $destac-color;
+  color: $highlight;
 }
 
 .spoti-control-music {
@@ -275,7 +275,7 @@ button {
 .super_panel_user {
   background-size: 600px;
   background-repeat: no-repeat;
-  background-color: $base-color;
+  background-color: $base;
   background-position: center;
   min-height: 200px;
   min-width: 240px;
@@ -285,7 +285,7 @@ button {
 .super_panel_user:hover {
   background-size: 580px;
   background-repeat: no-repeat;
-  background-color: $base-color;
+  background-color: $base;
   background-position: center;
   min-height: 200px;
   min-width: 240px;
@@ -293,8 +293,8 @@ button {
 }
 
 .super_user_name {
-  background-color: $base-color;
-  color: $font-color;
+  background-color: $base;
+  color: $font;
   font-family: Ubuntu;
   font-size: 20px;
   padding-bottom: 10px;
@@ -304,7 +304,7 @@ button {
 .reddit {
   background-size: 60px;
   background-repeat: no-repeat;
-  background-color: $base-color;
+  background-color: $base;
   background-position: center;
   min-height: 60px;
   min-width: 100px;
@@ -314,7 +314,7 @@ button {
 .reddit:hover {
   background-size: 70px;
   background-repeat: no-repeat;
-  background-color: $base-color;
+  background-color: $base;
   background-position: center;
   min-height: 60px;
   min-width: 100px;
@@ -324,7 +324,7 @@ button {
 .telegram {
   background-size: 60px;
   background-repeat: no-repeat;
-  background-color: $base-color;
+  background-color: $base;
   background-position: center;
   min-height: 60px;
   min-width: 100px;
@@ -335,7 +335,7 @@ button {
 .telegram:hover {
   background-size: 70px;
   background-repeat: no-repeat;
-  background-color: $base-color;
+  background-color: $base;
   background-position: center;
   min-height: 60px;
   min-width: 100px;
@@ -345,7 +345,7 @@ button {
 .youtube {
   background-size: 60px;
   background-repeat: no-repeat;
-  background-color: $base-color;
+  background-color: $base;
   background-position: center;
   min-height: 60px;
   min-width: 100px;
@@ -356,7 +356,7 @@ button {
 .youtube:hover {
   background-size: 70px;
   background-repeat: no-repeat;
-  background-color: $base-color;
+  background-color: $base;
   background-position: center;
   min-height: 60px;
   min-width: 100px;
@@ -366,7 +366,7 @@ button {
 .spotify {
   background-size: 60px;
   background-repeat: no-repeat;
-  background-color: $base-color;
+  background-color: $base;
   background-position: center;
   min-height: 60px;
   min-width: 100px;
@@ -377,7 +377,7 @@ button {
 .spotify:hover {
   background-size: 70px;
   background-repeat: no-repeat;
-  background-color: $base-color;
+  background-color: $base;
   background-position: center;
   min-height: 60px;
   min-width: 100px;
@@ -388,8 +388,8 @@ button {
 .mpd_icon button {
   font-family: monospace;
   font-size: 30px;
-  background-color: $destac-color;
-  color: $font-color;
+  background-color: $highlight;
+  color: $font;
   padding-left: 27px;
   padding-right: 27px;
   border-radius: 10 0 0 10;
@@ -398,8 +398,8 @@ button {
 .mpd_icon {
   font-family: monospace;
   font-size: 30px;
-  background-color: $destac-color;
-  color: $font-color;
+  background-color: $highlight;
+  color: $font;
   padding-left: 27px;
   padding-right: 27px;
   border-radius: 10 0 0 10;
@@ -408,68 +408,68 @@ button {
 .mpd_icon:hover {
   font-family: monospace;
   font-size: 30px;
-  background-color: $destac-color;
-  color: $base-color;
+  background-color: $highlight;
+  color: $base;
   padding-left: 27px;
   padding-right: 27px;
   border-radius: 10 0 0 10;
 }
 
 .mpd_music_name {
-  background-color: $base-color;
+  background-color: $base;
   font-family: Ubuntu;
   font-size: 16px;
 }
 
 .control-mpd {
-  background-color: $base-color;
+  background-color: $base;
   font-family: monospace;
   font-size: 15px;
 }
 
 .control-mpd:hover {
-  background-color: $base-color;
+  background-color: $base;
   color: #F88765;
   font-family: monospace;
   font-size: 12px;
 }
 
 .music-info {
-  background-color: $base-color;
+  background-color: $base;
 }
 
 .music-info scale trough highlight {
   all: unset;
-  background-color: $destac-color;
+  background-color: $highlight;
   color: #000000;
   border-radius: 0px;
 }
 
 .music-info scale trough {
   all: unset;
-  background-color: $base-color;
+  background-color: $base;
   border-radius: $defalt-radius;
   min-height: 15px;
   min-width: 175px;
 }
 
 calendar {
-  background-color: $base-color;
+  background-color: $base;
 }
 
 calendar:selected {
   border-radius: 10px;
-  color: $destac-color;
+  color: $highlight;
   background-color: rgba(200, 200, 200, 0.4);
 }
 
 calendar.header {
-  color: $destac-color;
+  color: $highlight;
   font-weight: bold;
 }
 
 calendar.button {
-  color: $destac-color;
+  color: $highlight;
 }
 
 calendar.highlight {
@@ -482,7 +482,7 @@ calendar:indeterminate {
 }
 
 .calendarwin {
-  background-color: $base-color;
+  background-color: $base;
   color: #919191;
   font-family: Ubuntu Bold;
   font-size: 14px;
@@ -493,7 +493,7 @@ calendar:indeterminate {
 }
 
 .date {
-  background-color: $base-color;
+  background-color: $base;
   color: #919191;
   font-family: Ubuntu Bold;
   font-size: 18px;
@@ -503,7 +503,7 @@ calendar:indeterminate {
 }
 
 .weather-panel {
-  background-color: $base-color;
+  background-color: $base;
   color: #708090
 }
 
@@ -523,8 +523,8 @@ calendar:indeterminate {
   margin-right: 10px;
   padding: 10px;
   border-radius: 10px;
-  background-color: $destac-color;
-  color: $font-color
+  background-color: $highlight;
+  color: $font
 }
 
 .weatherstatus {
@@ -537,7 +537,7 @@ calendar:indeterminate {
 .weathertemp {
   font-family: Ubuntu;
   font-size: 20px;
-  color: $destac-color;
+  color: $highlight;
   padding-top: 10px;
 }
 
@@ -552,18 +552,18 @@ calendar:indeterminate {
 .moon {
   font-family: Ubuntu;
   font-size: 20px;
-  color: $font-color;
+  color: $font;
   padding-top: 6px;
 
 }
 
 .system {
-  background-color: $base-color;
+  background-color: $base;
   padding: 2px;
 }
 
 .sysicons {
-  background-color: $base-color;
+  background-color: $base;
   padding: 5px;
   margin-right: 10px;
 }
@@ -575,11 +575,11 @@ calendar:indeterminate {
   margin: 5px;
   border-right-style: solid;
   border-width: 1px;
-  border-color: $destac-color;
+  border-color: $highlight;
 }
 
 .graphics {
-  background-color: $base-color;
+  background-color: $base;
 }
 
 .graphic_cpu scale trough {
@@ -596,7 +596,7 @@ calendar:indeterminate {
 
 .graphic_cpu trough highlight {
     all: unset;
-    background-image: linear-gradient(90deg, $destac-color 90%, #FF8B8B 10%);
+    background-image: linear-gradient(90deg, $highlight 90%, #FF8B8B 10%);
     color: #000000;
     border-radius: 20px;
 }
@@ -614,7 +614,7 @@ calendar:indeterminate {
 
 .graphic_mem scale trough highlight {
   all: unset;
-  background-image: linear-gradient(90deg, $destac-color 90%, #FFAD8B 10%);
+  background-image: linear-gradient(90deg, $highlight 90%, #FFAD8B 10%);
   color: #000000;
   border-radius: 20px;
 }
@@ -632,7 +632,7 @@ calendar:indeterminate {
 
 .graphic_root scale trough highlight {
   all: unset;
-  background-image: linear-gradient(90deg, $destac-color 90%, #FFD08B 10%);
+  background-image: linear-gradient(90deg, $highlight 90%, #FFD08B 10%);
   color: #000000;
   border-radius: 20px;
 }
@@ -650,7 +650,7 @@ calendar:indeterminate {
 
 .graphic_home scale trough highlight {
   all: unset;
-  background-image: linear-gradient(90deg, $destac-color 90%, #FFF38B 10%);
+  background-image: linear-gradient(90deg, $highlight 90%, #FFF38B 10%);
   color: #000000;
   border-radius: 20px;
 }
@@ -668,7 +668,7 @@ calendar:indeterminate {
 
 .graphic_core1 scale trough highlight {
   all: unset;
-  background-image: linear-gradient(90deg, $destac-color 90%, #E8FF8B 10%);
+  background-image: linear-gradient(90deg, $highlight 90%, #E8FF8B 10%);
   color: #000000;
   border-radius: 20px;
 }
@@ -686,16 +686,16 @@ calendar:indeterminate {
 
 .graphic_core2 scale trough highlight {
   all: unset;
-  background-image: linear-gradient(90deg, $destac-color 90%, #C5FF8B 10%);
+  background-image: linear-gradient(90deg, $highlight 90%, #C5FF8B 10%);
   color: #000000;
   border-radius: 20px;
 }
 
 .syspanelinfo {
-  background-color: $destac-color;
+  background-color: $highlight;
   font-family: Ubuntu;
   font-size: 15px;
-  color: $font-color
+  color: $font
 }
 
 .sysinfo {
@@ -705,5 +705,5 @@ calendar:indeterminate {
 }
 
 .customizer {
-  background-color: $base-color;
+  background-color: $base;
 }
